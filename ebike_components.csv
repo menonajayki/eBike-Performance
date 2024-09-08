@@ -1,0 +1,6 @@
+eBikeID,ComponentID,ComponentType,Manufacturer,LastMaintenanceDate
+1,101,Battery,Bosch,2023-03-12
+1,102,Motor,Bosch,2023-02-15
+1,103,Sensor,Bosch,2023-03-01
+2,201,Battery,Bosch,2023-05-10
+2,202,Motor,Bosch,2023-05-12

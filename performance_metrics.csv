@@ -1,0 +1,6 @@
+eBikeID,ComponentID,Metric,Value,Threshold,Timestamp
+1,101,BatteryLife,25,20,2023-07-01 10:00
+1,102,MotorTemp,75,90,2023-07-01 10:00
+1,103,SensorAccuracy,98,90,2023-07-01 10:00
+2,201,BatteryLife,18,20,2023-07-01 10:00
+2,202,MotorTemp,95,90,2023-07-01 10:00
