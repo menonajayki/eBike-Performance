@@ -4,7 +4,7 @@ import csv
 
 # Neo4j connection setup
 uri = "bolt://localhost:7687"
-driver = GraphDatabase.driver(uri, auth=("neo4j", "arena2036"))
+driver = GraphDatabase.driver(uri, auth=("neo4j", "----"))
 
 # Functions to create eBike nodes, components, and metrics
 def create_ebike(tx, ebike_id):
