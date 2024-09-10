@@ -1,6 +1,71 @@
-eBikeID,ComponentID,Metric,Value,Threshold,Timestamp
-1,101,BatteryLife,25,20,2023-07-01 10:00
-1,102,MotorTemp,75,90,2023-07-01 10:00
-1,103,SensorAccuracy,98,90,2023-07-01 10:00
-2,201,BatteryLife,18,20,2023-07-01 10:00
-2,202,MotorTemp,95,90,2023-07-01 10:00
+eBikeID,ComponentID,ComponentName,ComponentType,Metric,Value,Threshold,Timestamp
+1,101,New Purion & Purion 200,Display,BatteryLife,25,20,2023-01-01 08:00
+1,102,New Purion & Purion 200,Display,BatteryChargeTime,2.5,3.0,2023-01-01 08:00
+1,103,New Purion & Purion 200,Display,MotorEfficiency,85,80,2023-01-01 08:00
+1,104,New Purion & Purion 200,Display,TirePressure,34,30,2023-01-01 08:00
+1,105,New Purion & Purion 200,Display,BrakeWear,40,50,2023-01-01 08:00
+1,106,New Purion & Purion 200,Display,ConnectivityStrength,75,70,2023-01-01 08:00
+1,107,New Purion & Purion 200,Display,RideComfort,4.5,4.0,2023-01-01 08:00
+2,201,LED Remote,Control,BatteryLife,19,20,2023-01-02 09:00
+2,202,LED Remote,Control,BatteryChargeTime,2.8,3.0,2023-01-02 09:00
+2,203,LED Remote,Control,MotorEfficiency,78,80,2023-01-02 09:00
+2,204,LED Remote,Control,TirePressure,33,30,2023-01-02 09:00
+2,205,LED Remote,Control,BrakeWear,45,50,2023-01-02 09:00
+2,206,LED Remote,Control,ConnectivityStrength,80,70,2023-01-02 09:00
+2,207,LED Remote,Control,RideComfort,4.6,4.5,2023-01-02 09:00
+3,301,System Controller,Control,BatteryLife,22,20,2023-01-03 10:00
+3,302,System Controller,Control,BatteryChargeTime,2.7,3.0,2023-01-03 10:00
+3,303,System Controller,Control,MotorEfficiency,82,80,2023-01-03 10:00
+3,304,System Controller,Control,TirePressure,31,30,2023-01-03 10:00
+3,305,System Controller,Control,BrakeWear,42,50,2023-01-03 10:00
+3,306,System Controller,Control,ConnectivityStrength,77,70,2023-01-03 10:00
+3,307,System Controller,Control,RideComfort,4.4,4.0,2023-01-03 10:00
+4,401,Mini Remote,Control,BatteryLife,20,20,2023-01-04 11:00
+4,402,Mini Remote,Control,BatteryChargeTime,2.6,3.0,2023-01-04 11:00
+4,403,Mini Remote,Control,MotorEfficiency,80,80,2023-01-04 11:00
+4,404,Mini Remote,Control,TirePressure,32,30,2023-01-04 11:00
+4,405,Mini Remote,Control,BrakeWear,41,50,2023-01-04 11:00
+4,406,Mini Remote,Control,ConnectivityStrength,78,70,2023-01-04 11:00
+4,407,Mini Remote,Control,RideComfort,4.7,4.5,2023-01-04 11:00
+5,501,Intuvia,Display,BatteryLife,24,20,2023-01-05 12:00
+5,502,Intuvia,Display,BatteryChargeTime,2.5,3.0,2023-01-05 12:00
+5,503,Intuvia,Display,MotorEfficiency,84,80,2023-01-05 12:00
+5,504,Intuvia,Display,TirePressure,35,30,2023-01-05 12:00
+5,505,Intuvia,Display,BrakeWear,39,50,2023-01-05 12:00
+5,506,Intuvia,Display,ConnectivityStrength,76,70,2023-01-05 12:00
+5,507,Intuvia,Display,RideComfort,4.5,4.0,2023-01-05 12:00
+6,601,Kiox,Display,BatteryLife,23,20,2023-01-06 13:00
+6,602,Kiox,Display,BatteryChargeTime,2.6,3.0,2023-01-06 13:00
+6,603,Kiox,Display,MotorEfficiency,83,80,2023-01-06 13:00
+6,604,Kiox,Display,TirePressure,34,30,2023-01-06 13:00
+6,605,Kiox,Display,BrakeWear,40,50,2023-01-06 13:00
+6,606,Kiox,Display,ConnectivityStrength,79,70,2023-01-06 13:00
+6,607,Kiox,Display,RideComfort,4.6,4.5,2023-01-06 13:00
+7,701,Nyon,Computer,BatteryLife,22,20,2023-01-07 14:00
+7,702,Nyon,Computer,BatteryChargeTime,2.7,3.0,2023-01-07 14:00
+7,703,Nyon,Computer,MotorEfficiency,81,80,2023-01-07 14:00
+7,704,Nyon,Computer,TirePressure,32,30,2023-01-07 14:00
+7,705,Nyon,Computer,BrakeWear,43,50,2023-01-07 14:00
+7,706,Nyon,Computer,ConnectivityStrength,80,70,2023-01-07 14:00
+7,707,Nyon,Computer,RideComfort,4.4,4.0,2023-01-07 14:00
+8,801,SmartphoneGrip,Accessory,BatteryLife,21,20,2023-01-08 15:00
+8,802,SmartphoneGrip,Accessory,BatteryChargeTime,2.6,3.0,2023-01-08 15:00
+8,803,SmartphoneGrip,Accessory,MotorEfficiency,79,80,2023-01-08 15:00
+8,804,SmartphoneGrip,Accessory,TirePressure,30,30,2023-01-08 15:00
+8,805,SmartphoneGrip,Accessory,BrakeWear,44,50,2023-01-08 15:00
+8,806,SmartphoneGrip,Accessory,ConnectivityStrength,76,70,2023-01-08 15:00
+8,807,SmartphoneGrip,Accessory,RideComfort,4.5,4.0,2023-01-08 15:00
+9,901,New Purion & Purion 200,Display,BatteryLife,26,20,2023-01-09 16:00
+9,902,New Purion & Purion 200,Display,BatteryChargeTime,2.4,3.0,2023-01-09 16:00
+9,903,New Purion & Purion 200,Display,MotorEfficiency,87,80,2023-01-09 16:00
+9,904,New Purion & Purion 200,Display,TirePressure,34,30,2023-01-09 16:00
+9,905,New Purion & Purion 200,Display,BrakeWear,41,50,2023-01-09 16:00
+9,906,New Purion & Purion 200,Display,ConnectivityStrength,78,70,2023-01-09 16:00
+9,907,New Purion & Purion 200,Display,RideComfort,4.6,4.0,2023-01-09 16:00
+10,1001,LED Remote,Control,BatteryLife,20,20,2023-01-10 17:00
+10,1002,LED Remote,Control,BatteryChargeTime,2.7,3.0,2023-01-10 17:00
+10,1003,LED Remote,Control,MotorEfficiency,82,80,2023-01-10 17:00
+10,1004,LED Remote,Control,TirePressure,32,30,2023-01-10 17:00
+10,1005,LED Remote,Control,BrakeWear,43,50,2023-01-10 17:00
+10,1006,LED Remote,Control,ConnectivityStrength,74,70,2023-01-10 17:00
+10,1007,LED Remote,Control,RideComfort,4.4,4.0,2023-01-10 17:00

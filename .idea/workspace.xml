@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d66866e-8515-40df-ad6b-29558ad6366e" name="Changes" comment="" />
+    <list default="true" id="0d66866e-8515-40df-ad6b-29558ad6366e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/arch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gantt chart.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ebike_components.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ebike_components.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingest.py" beforeDir="false" afterPath="$PROJECT_DIR$/ingest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance_metrics.csv" beforeDir="false" afterPath="$PROJECT_DIR$/performance_metrics.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,25 +31,27 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2lncPhI5j2IsVOZqSFAnv1uD1ua" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.app.executor": "Run",
-    "Python.ingest.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.arch.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gantt chart.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ingest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Neo4j_GDB_Project" />

@@ -4,7 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 # Neo4j connection setup
 uri = "bolt://localhost:7687"
-driver = GraphDatabase.driver(uri, auth=("neo4j", "----"))
+driver = GraphDatabase.driver(uri, auth=("neo4j", "arena2036"))
 
 
 def get_performance_data():
