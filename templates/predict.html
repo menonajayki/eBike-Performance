@@ -3,15 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prediction Result</title>
+    <title>Rubber Shim Breakage Prediction Result</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .result-container {
+            margin-bottom: 20px;
+        }
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Prediction Result</h1>
-    <p>Component Type: {{ component_type }}</p>
-    <p>Performance Value: {{ value }}</p>
-    <p>Threshold Value: {{ threshold }}</p>
-    <p>Result: The component {{ result }}</p>
-    <a href="/">Back to Dashboard</a>
+    <header>
+        <h1>Rubber Shim Breakage Prediction Result</h1>
+    </header>
+    <div class="container">
+        <div class="result-container">
+            <h2>Prediction Result</h2>
+            <div class="result">
+                The rubber shim with diameter {{ diameter }} mm, handlebar width {{ handlebar_width }} mm, and screw parameters "{{ screw_params }}" is <strong>{{ result }}</strong>.
+            </div>
+        </div>
+        <a href="/" class="back-link">Back to Dashboard</a>
+    </div>
 </body>
 </html>

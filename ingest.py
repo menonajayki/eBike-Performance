@@ -1,53 +1,47 @@
 from neo4j import GraphDatabase
 import pandas as pd
-import csv
 
-# Neo4j connection setup
 uri = "bolt://localhost:7687"
 driver = GraphDatabase.driver(uri, auth=("neo4j", "arena2036"))
 
-# Functions to create eBike nodes, components, and metrics
-def create_ebike(tx, ebike_id):
-    query = "CREATE (e:EBike {id: $ebike_id}) RETURN e"
-    tx.run(query, ebike_id=ebike_id)
+def ingest_rubber_shim_data(tx, shim_id, diameter, month, screw_params, handlebar_width):
+    query = """
+    CREATE (r:RubberShim {
+        ShimID: $shim_id, 
+        Diameter: $diameter, 
+        ProductionMonth: $month, 
+        ScrewParams: $screw_params, 
+        HandlebarWidth: $handlebar_width
+    })
+    """
+    tx.run(query, shim_id=shim_id, diameter=diameter, month=month, screw_params=screw_params, handlebar_width=handlebar_width)
 
-def create_component(tx, ebike_id, component_id, component_type, manufacturer, last_maintenance):
-    query = (
-        "MATCH (e:EBike {id: $ebike_id}) "
-        "CREATE (c:Component {id: $component_id, type: $component_type, manufacturer: $manufacturer, lastMaintenance: $last_maintenance}) "
-        "MERGE (e)-[:HAS_COMPONENT]->(c) RETURN e, c"
-    )
-    tx.run(query, ebike_id=ebike_id, component_id=component_id, component_type=component_type, manufacturer=manufacturer, last_maintenance=last_maintenance)
+def ingest_feedback_data(tx, shim_id, feedback, breakage):
+    query = """
+    MATCH (r:RubberShim {ShimID: $shim_id})
+    CREATE (f:Feedback {
+        Feedback: $feedback, 
+        Breakage: $breakage
+    })-[:FEEDBACK_ON]->(r)
+    """
+    tx.run(query, shim_id=shim_id, feedback=feedback, breakage=breakage)
 
-def create_metric(tx, component_id, metric, value, threshold, timestamp):
-    query = (
-        "MATCH (c:Component {id: $component_id}) "
-        "CREATE (m:Metric {metric: $metric, value: $value, threshold: $threshold, timestamp: $timestamp}) "
-        "MERGE (c)-[:HAS_METRIC]->(m) RETURN c, m"
-    )
-    tx.run(query, component_id=component_id, metric=metric, value=value, threshold=threshold, timestamp=timestamp)
+def ingest_data_to_neo4j():
+    # CSV files
+    rubber_shim_data = pd.read_csv('rubber_shim_data.csv')
+    feedback_data = pd.read_csv('customer_feedback_data.csv')
 
-# Load sample eBike and component data from CSV
-def load_ebike_data(file_path):
-    with open(file_path, 'r') as f:
-        reader = csv.DictReader(f)
-        with driver.session() as session:
-            for row in reader:
-                session.write_transaction(create_ebike, row['eBikeID'])
-                session.write_transaction(
-                    create_component, row['eBikeID'], row['ComponentID'], row['ComponentType'],
-                    row['Manufacturer'], row['LastMaintenanceDate']
-                )
+    # rubber shim data
+    with driver.session() as session:
+        for index, row in rubber_shim_data.iterrows():
+            session.write_transaction(ingest_rubber_shim_data, row['ShimID'], row['Diameter (mm)'], row['Production Month'], row['Screw Parameters'], row['Handlebar Width (mm)'])
 
-def load_performance_data(file_path):
-    with open(file_path, 'r') as f:
-        reader = csv.DictReader(f)
-        with driver.session() as session:
-            for row in reader:
-                session.write_transaction(
-                    create_metric, row['ComponentID'], row['Metric'], row['Value'], row['Threshold'], row['Timestamp']
-                )
+    # feedback data
+    with driver.session() as session:
+        for index, row in feedback_data.iterrows():
+            session.write_transaction(ingest_feedback_data, row['ShimID'], row['Customer Feedback'], row['Breakage (Yes/No)'])
 
-# Load data from CSV
-load_ebike_data("ebike_components.csv")
-load_performance_data("performance_metrics.csv")
+# ingestion
+ingest_data_to_neo4j()
+
+print("Data ingestion to Neo4j completed.")

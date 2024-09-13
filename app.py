@@ -1,26 +1,32 @@
 from flask import Flask, render_template, request
-from prediction import get_performance_data, predict_maintenance
+from prediction import get_rubber_shim_data, get_customer_feedback_data, predict_breakage
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def dashboard():
-    data = get_performance_data()
-    return render_template('dashboard.html', data=data)
+    return render_template('dashboard.html')
 
+@app.route('/rubber_shim_data')
+def rubber_shim_data():
+    data = get_rubber_shim_data()
+    return render_template('rubber_shim_data.html', production_data=data)
+
+@app.route('/customer_feedback')
+def customer_feedback():
+    data = get_customer_feedback_data()
+    return render_template('customer_feedback.html', feedback_data=data)
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    value = float(request.form.get('value', 0))
-    threshold = float(request.form.get('threshold', 0))
-    component_type = request.form.get('component_type', 'Unknown')
-    needs_maintenance = predict_maintenance(value, threshold)
-    result = "needs maintenance" if needs_maintenance else "does not need maintenance"
+    diameter = float(request.form.get('diameter', 0))
+    screw_params = request.form.get('screw_params', 'Type A')
+    handlebar_width = float(request.form.get('handlebar_width', 0))
 
-    return render_template('predict.html', value=value, threshold=threshold, result=result,
-                           component_type=component_type)
+    breakage = predict_breakage(diameter, screw_params, handlebar_width)
+    result = "likely to break" if breakage else "unlikely to break"
 
+    return render_template('predict.html', diameter=diameter, screw_params=screw_params, handlebar_width=handlebar_width, result=result)
 
 if __name__ == '__main__':
     app.run(debug=True)

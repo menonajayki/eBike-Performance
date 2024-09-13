@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+<body>
+    <h1>Customer Feedback Data</h1>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Screw Type</th>
+                    <th>Feedback</th>
+                    <th>Reported Breakage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in feedback_data %}
+                <tr>
+                    <td>{{ record['screw_params'] }}</td>
+                    <td>{{ record['feedback'] }}</td>
+                    <td>
+                        {% if record['breakage'] %}
+                            <span class="status status-warning">Yes</span>
+                        {% else %}
+                            <span class="status status-ok">No</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/">Back to Dashboard</a>
+    </div>
+</body>
+</html>

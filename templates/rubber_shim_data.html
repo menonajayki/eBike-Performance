@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubber Shim Production Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+<body>
+    <h1>Rubber Shim Production Data</h1>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Diameter (mm)</th>
+                    <th>Production Month</th>
+                    <th>Handlebar Width (mm)</th>
+                    <th>Screw Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in production_data %}
+                <tr>
+                    <td>{{ record['diameter'] }}</td>
+                    <td>{{ record['month'] }}</td>
+                    <td>{{ record['handlebar_width'] }}</td>
+                    <td>{{ record['screw_params'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/">Back to Dashboard</a>
+    </div>
+</body>
+</html>

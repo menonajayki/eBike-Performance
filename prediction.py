@@ -1,35 +1,33 @@
 from neo4j import GraphDatabase
-import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
 
-# Neo4j connection setup
 uri = "bolt://localhost:7687"
 driver = GraphDatabase.driver(uri, auth=("neo4j", "arena2036"))
 
 
-def get_performance_data():
-    query = "MATCH (m:Metric) RETURN m.metric AS metric, m.value AS value, m.threshold AS threshold"
+def get_rubber_shim_data():
     with driver.session() as session:
+        query = """
+        MATCH (r:RubberShim)
+        RETURN r.Diameter AS diameter, r.ProductionMonth AS month, r.HandlebarWidth AS handlebar_width, r.ScrewParams AS screw_params
+        """
         result = session.run(query)
-        data = []
-        for record in result:
-            data.append([record['metric'], record['value'], record['threshold']])
-        return data
+        return [record for record in result]
 
 
-def predict_maintenance(value, threshold):
-    # Get data for training
-    data = get_performance_data()
-    df = pd.DataFrame(data, columns=["metric", "value", "threshold"])
-    df['needs_maintenance'] = df['value'] < df['threshold']
+def get_customer_feedback_data():
+    with driver.session() as session:
+        query = """
+        MATCH (r:RubberShim)<-[:FEEDBACK_ON]-(f:Feedback)
+        RETURN r.ScrewParams AS screw_params, f.Feedback AS feedback, f.Breakage AS breakage
+        """
+        result = session.run(query)
+        return [record for record in result]
 
-    # Prepare data for AI model
-    X = df[['value', 'threshold']]
-    y = df['needs_maintenance']
 
-    # Train a decision tree classifier
-    model = DecisionTreeClassifier()
-    model.fit(X, y)
+def predict_breakage(diameter, screw_params, handlebar_width):
+    with driver.session() as session:
+        breakage_risk = False
+        if diameter < 42.0 or handlebar_width < 780:
+            breakage_risk = True
 
-    # Predict maintenance need
-    return model.predict([[value, threshold]])[0]
+    return breakage_risk
